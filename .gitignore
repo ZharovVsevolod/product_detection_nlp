@@ -3,3 +3,4 @@ product_detection/models/__pycache__/
 .env
 proceeding.ipynb
 outputs/
+tests/__pycache__/

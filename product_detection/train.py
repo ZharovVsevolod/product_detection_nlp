@@ -1,10 +1,10 @@
 import hydra
 from hydra.core.config_store import ConfigStore
 
-from product_detection.config import Params, Scheduler_ReduceOnPlateau, Scheduler_OneCycleLR
-from product_detection.models.shell import Model_Lightning_Shell, ConfMatrixLogging
-from product_detection.data import TextClassification_DataModule
-from product_detection.config import KNOWN_CLASSES
+from config import Params, Scheduler_ReduceOnPlateau, Scheduler_OneCycleLR
+from models.shell import Model_Lightning_Shell, ConfMatrixLogging
+from data import TextClassification_DataModule
+from config import KNOWN_CLASSES
 
 import lightning as L
 from lightning.pytorch.loggers import WandbLogger
@@ -64,7 +64,7 @@ def main(cfg: Params) -> None:
         devices = 1,
         logger = wandb_log,
         callbacks = [checkpoint, lr_monitor, early_stop, conf_matrix_logger],
-        # fast_dev_run = 5
+        fast_dev_run = 5
     )
     trainer.fit(model = model, datamodule = dm)
 

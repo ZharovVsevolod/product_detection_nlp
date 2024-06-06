@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 import itertools
 import einops
 
-from product_detection.config import Params
-from product_detection.models.model import SpecificBERT
+from config import Params
+from models.model import SpecificBERT
 
 class Model_Lightning_Shell(L.LightningModule):
     def __init__(

@@ -1,4 +1,4 @@
-from product_detection.models.shell import Model_Lightning_Shell
+from models.shell import Model_Lightning_Shell
 import torch
 
 model = Model_Lightning_Shell.load_from_checkpoint("outputs/2024-06-05/21-35-15/weights/epoch_epoch=9-val_loss=0.097.ckpt")

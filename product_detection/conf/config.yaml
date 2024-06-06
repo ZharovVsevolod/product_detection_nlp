@@ -1,0 +1,32 @@
+training:
+  project_name: product_detection
+  train_name: bert
+  seed: 1702
+  epochs: 30
+  batch: 512
+  lr: 3e-4
+  model_path: ${hydra:run.dir}/weights
+  wandb_path: ${hydra:run.dir}/wandb
+  save_best_of: 3
+  checkpoint_monitor: val_loss
+  early_stopping_patience: 8
+
+dataset:
+  path_to_data: ./datasets/meatinfo.csv
+  vocab_size: 300
+  path_to_bpe_dir: ./weights
+  output_dir: ${hydra:run.dir}
+  chunk_lenght: 60
+  pad_value: 0
+  need_to_train_bpe: False
+  test_size_split: 0.2
+
+model:
+  embedding_dim: 256
+  layers: 8
+  heads: 4
+  mlp_dim: 512
+  qkv_bias: False
+  dropout: 0.1
+  norm_type: postnorm
+  num_output_classes: 6
